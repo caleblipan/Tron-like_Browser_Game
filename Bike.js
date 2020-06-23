@@ -9,7 +9,11 @@ function Bike(x, y, xV, yV, c) {
 
 Bike.prototype.draw = function() {
     noStroke();
-    fill(this.c);
+    fill(this.c);  
+    drawingContext.shadowOffsetX = 0;
+    drawingContext.shadowOffsetY = 0;
+    drawingContext.shadowBlur = 3;
+    drawingContext.shadowColor = this.c;
     
     for (var i = 0; i < this.trail.length; i++)
         rect(this.trail[i].x * SCL, this.trail[i].y * SCL, SCL, SCL);
@@ -39,3 +43,6 @@ Bike.prototype.collidesWith = function (trail) {
     return false;
 };
 
+Bike.prototype.collidesWithBounds = function() {
+    return (this.loc.x < 0 || this.loc.x > (width / SCL) || this.loc.y < 0 || this.loc.y > height);
+};

@@ -3,7 +3,7 @@ var SCL = 5;
 var player1, player2;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(0.8 * windowWidth, 0.8 * windowHeight);
     
     frameRate(30);
     
@@ -23,11 +23,18 @@ function draw() {
     player1.draw();
     player2.draw();
     
-    if (player1.collidesWith(player2.trail)) { // || player2.collidesWith(player2.trail)) {
-        endGame("Player 2");
-    } else if (player2.collidesWith(player1.trail)) { // player1.collidesWith(player1.trail))) {
-        endGame("Player 1");
-    }
+    // If players collide at the same time
+	if ((player1.collidesWith(player2.trail) && player2.collidesWith(player1.trail)) ||
+        (player1.collidesWith(player1.trail) && player2.collidesWith(player2.trail)) ||
+		(player1.collidesWithBounds() && player2.collidesWithBounds()))	{
+		endGame("Draw!");
+	} else if (player1.collidesWith(player2.trail) || player1.collidesWithBounds() || player1.collidesWith(player1.trail)) {
+        // If CLU collides
+		endGame("User wins");
+	} else if (player2.collidesWith(player1.trail) || player2.collidesWithBounds() || player2.collidesWith(player2.trail)) {
+        // If User collides
+		endGame("CLU (Codified Likeness Utility) wins!");
+	}
 }
 
 function keyPressed() {
@@ -69,6 +76,6 @@ function keyPressed() {
 }
 
 function endGame(winner) {
-    console.log("Game over, " + winner);
+    alert("Game over, " + winner);
     noLoop();
 }

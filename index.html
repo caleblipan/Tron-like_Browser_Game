@@ -5,28 +5,36 @@
         <script type="text/javascript" src="Tron.js"></script>
         <script type="text/javascript" src="Bike.js"></script>
         <style>
+            * {
+                box-sizing: border-box;
+            }
             body {
+                --nr:10; /* number of rows */
+                --nc:20; /* number of columns */
+                --b:1px; /* border length */
                 overflow: hidden;
-                margin: 0;
-              --nr:10; /* number of rows */
-              --nc:20; /* number of columns */
-              --b:1px; /* border length */
-
-
-              --g:transparent calc(100% - var(--b)),#00cdcd 0;
-              background:
-                linear-gradient(to right, var(--g)),
-                linear-gradient(to bottom,var(--g)),
-                #1d1d1d;
-              background-size:
-                calc((100% - var(--b)*(var(--nc) - 1))/var(--nc) + var(--b)) 100%,
-                100% calc((100% - var(--b)*(var(--nr) - 1))/var(--nr) + var(--b));
+                width: 100vw;
+                height: 100vh;
+                --g:transparent calc(100% - var(--b)),#00cdcd 0;
+                background:
+                    linear-gradient(to right, var(--g)),
+                    linear-gradient(to bottom,var(--g)),
+                    #1d1d1d;
+                background-size:
+                    calc((100% - var(--b)*(var(--nc) - 1))/var(--nc) + var(--b)) 100%,
+                    100% calc((100% - var(--b)*(var(--nr) - 1))/var(--nr) + var(--b));
                 
-                box-shadow: inset 0 0 200px;
+                    box-shadow: inset 0 0 200px;
+            }
+            
+            canvas {
+                border: 5px solid #00cccc;
+                border-radius: 10px;
+                transform: translate(12%, 12%);
+                box-shadow: 0 0 50px #00cdcd;
             }
         </style>
     </head>
     <body>
-    
     </body>
 </html>
