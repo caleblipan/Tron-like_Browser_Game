@@ -1,4 +1,4 @@
-A Tron browser game that you can play offline.
+<h1>Tron-like Browser Game</h1>
 
 Features in development:
 1. Customizable gameplay (main menus, etc)
