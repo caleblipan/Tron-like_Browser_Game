@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script type="text/javascript" src="Tron.js"></script>
+        <script type="text/javascript" src="Bike.js"></script>
+        <style>
+            body {
+                overflow: hidden;
+                margin: 0;
+              --nr:10; /* number of rows */
+              --nc:20; /* number of columns */
+              --b:1px; /* border length */
+
+
+              --g:transparent calc(100% - var(--b)),#00cdcd 0;
+              background:
+                linear-gradient(to right, var(--g)),
+                linear-gradient(to bottom,var(--g)),
+                #1d1d1d;
+              background-size:
+                calc((100% - var(--b)*(var(--nc) - 1))/var(--nc) + var(--b)) 100%,
+                100% calc((100% - var(--b)*(var(--nr) - 1))/var(--nr) + var(--b));
+                
+                box-shadow: inset 0 0 200px;
+            }
+        </style>
+    </head>
+    <body>
+    
+    </body>
+</html>
