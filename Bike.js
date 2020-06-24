@@ -25,11 +25,10 @@ Bike.prototype.update = function() {
 };
 
 Bike.prototype.setVelocity = function(velocity) {
-	if (Math.abs(this.vel.y - this.vel.y) > 1 ||
- 		Math.abs(this.vel.x - this.vel.x) > 1) // if new velocity opposes old velocity
+    // Prevent player from moving the opposite direction
+	if (Math.abs(velocity.y - this.vel.y) > 1 || Math.abs(velocity.x - this.vel.x) > 1)
 		return;
-
-	this.vel = velocity;
+    this.vel = velocity;
 };
 
 Bike.prototype.collidesWith = function (trail) {
